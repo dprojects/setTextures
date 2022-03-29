@@ -23,7 +23,7 @@ This is FreeCAD macro for woodworking to apply and store textures.
 	* At the `Material Card` for the `Material` applied to the object:
 		![u003](https://raw.githubusercontent.com/dprojects/setTextures/master/Screenshots/u003.png)
 
-* Run the tool and click the `store` button.
+* Run the tool and click the `load` button.
 
 # License
 
