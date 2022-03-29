@@ -17,11 +17,13 @@ This is FreeCAD macro for woodworking to apply and store textures.
 * Add texture URL path to Your favorite location:
 
 	* At objects description `Label2`:
-		![u001](https://raw.githubusercontent.com/dprojects/setTextures/master/Screenshots/u001.png)
+	![u001](https://raw.githubusercontent.com/dprojects/setTextures/master/Screenshots/u001.png)
+
 	* At `Texture` object property:
-		![u002](https://raw.githubusercontent.com/dprojects/setTextures/master/Screenshots/u002.png)
+	![u002](https://raw.githubusercontent.com/dprojects/setTextures/master/Screenshots/u002.png)
+	
 	* At the `Material Card` for the `Material` applied to the object:
-		![u003](https://raw.githubusercontent.com/dprojects/setTextures/master/Screenshots/u003.png)
+	![u003](https://raw.githubusercontent.com/dprojects/setTextures/master/Screenshots/u003.png)
 
 * Run the tool and click the `load` button.
 
