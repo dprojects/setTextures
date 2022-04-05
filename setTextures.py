@@ -2,7 +2,7 @@
 
 # FreeCAD macro for woodworking to apply and store textures
 # Author: Darek L (aka dprojects)
-# Version: 6.1
+# Version: 6.2
 # Latest version: https://github.com/dprojects/setTextures
 
 import FreeCAD, FreeCADGui
@@ -213,9 +213,9 @@ def showQtMain():
 		
 			# show status
 			if skip == 0:
-				showStatus("Texture properties has been stored.")
+				self.showStatus("Texture properties has been stored.")
 			else:
-				showStatus("Error during setting properties.")
+				self.showStatus("Error during setting properties.")
 		
 		# ############################################################
 		# actions - load
@@ -353,7 +353,7 @@ def showQtMain():
 				iText = "No textures URLs found. " 
 				self.showStatus(iText)
 			else:
-				showStatus("Textures has been loaded from stored URLs.")
+				self.showStatus("Textures has been loaded from stored URLs.")
 
 		# ############################################################
 		# actions - caller selection
