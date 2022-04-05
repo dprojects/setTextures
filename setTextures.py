@@ -2,7 +2,7 @@
 
 # FreeCAD macro for woodworking to apply and store textures
 # Author: Darek L (aka dprojects)
-# Version: 6.0
+# Version: 6.1
 # Latest version: https://github.com/dprojects/setTextures
 
 import FreeCAD, FreeCADGui
@@ -14,41 +14,34 @@ import os
 
 
 # ###################################################################################################################
-# Support for Qt GUI
+# Qt GUI
 # ###################################################################################################################
-
 
 def showQtMain():
 
-	# ############################################################################
-	# Qt Main Class
-	# ############################################################################
-	
 	class QtMainClass(QtGui.QDialog):
 
-		# init 
 		def __init__(self):
 			super(QtMainClass, self).__init__()
 			self.initUI()
 
 		def initUI(self):
 			
-			# window
-			self.result = userCancelled
+			# main window
 			self.setGeometry(400, 250, 800, 450)
 			self.setWindowTitle("setTextures")
 			self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
 
-			# ############################################################################
-			# texture URL path
-			# ############################################################################
-
-			# label
+			# info
 			info = ""
-			info += "If you want to load all stored textures, please go to Step 4, "
-			info += "without selection, and click \"load - all objects\" button."
+			info += "If you want to load all stored textures, please go to Step 4 "
+			info += "and click \"load - all objects\" button."
 			self.step0 = QtGui.QLabel(info, self)
 			self.step0.move(10, 10)
+
+			# ############################################################
+			# step 1
+			# ############################################################
 
 			# label
 			info = ""
@@ -61,6 +54,10 @@ def showQtMain():
 			self.pathI.setText(str(""))
 			self.pathI.setFixedWidth(750)
 			self.pathI.move(10, 60)
+
+			# ############################################################
+			# step 2
+			# ############################################################
 
 			# label
 			info = ""
@@ -104,6 +101,10 @@ def showQtMain():
 			self.step2c = QtGui.QLabel(info, self)
 			self.step2c.move(70, 183)
 
+			# ############################################################
+			# step 3
+			# ############################################################
+
 			# label
 			info = ""
 			info += "Step 3. Store texture properties, if no URL this property will be set to empty string:"
@@ -121,6 +122,10 @@ def showQtMain():
 			self.step3b.clicked.connect(lambda: self.checkSelected("store", "all"))
 			self.step3b.move(400, 250)
 			self.step3b.resize(200, 40)
+
+			# ############################################################
+			# step 4
+			# ############################################################
 
 			# label
 			info = ""
@@ -140,6 +145,10 @@ def showQtMain():
 			self.step4b.move(400, 320)
 			self.step4b.resize(200, 40)
 
+			# ############################################################
+			# status
+			# ############################################################
+
 			# label
 			space = ""
 			space += "                                                                                        "
@@ -148,32 +157,32 @@ def showQtMain():
 			self.Status = QtGui.QLabel(space, self)
 			self.Status.move(10, 420)
 
-			# ############################################################################
-			# show
-			# ############################################################################
+			# ############################################################
+			# show all
+			# ############################################################
 
 			self.show()
 
-		# ############################################################################
-		# actions
-		# ############################################################################
+		# ############################################################
+		# actions - status
+		# ############################################################
 		
-		def onCancel(self):
-			self.result = userCancelled
-			self.close()
-		def onOk(self):
-			self.result = userOK
-			self.close()
-
 		def showStatus(self, iText):
-		
-			# show info
-			QtGui.QMessageBox.information(None,"setTextures",str(iText))
+			self.Status.setText(str(iText))
 
+		# ############################################################
+		# actions - store
+		# ############################################################
+		
 		def setTextureProperty(self, iSearch, iSelect):
 
+			# set flag
+			skip = 0
+
+			# get texture URL from GUI text form
 			textureURL = self.pathI.text()
 
+			# scan all given objects and set all properties
 			for obj in iSearch:
 
 				# skip everything except furniture parts if for all
@@ -202,7 +211,15 @@ def showQtMain():
 				except:
 					skip = 1
 		
-			self.Status.setText("You should find all the given Texture properties for all selected objects.")
+			# show status
+			if skip == 0:
+				showStatus("Texture properties has been stored.")
+			else:
+				showStatus("Error during setting properties.")
+		
+		# ############################################################
+		# actions - load
+		# ############################################################
 		
 		def loadStoredTextures(self, iSearch):
 
@@ -333,13 +350,15 @@ def showQtMain():
 					rootnode.insertChild(texture, 2)
 
 			if empty == "":
-				iText = ""
-				iText += "No textures URLs found. \n" 
-				iText += "Please see the documentation to find out how to store textures. \n"
+				iText = "No textures URLs found. " 
 				self.showStatus(iText)
 			else:
-				self.Status.setText("All textures has been loaded from stored URLs.")
+				showStatus("Textures has been loaded from stored URLs.")
 
+		# ############################################################
+		# actions - caller selection
+		# ############################################################
+		
 		def checkSelected(self, iOperation, iSelection):
 
 			# check selected
@@ -347,9 +366,7 @@ def showQtMain():
 			selectedLen = len(selected)
 
 			if iSelection == "selected" and selectedLen == 0:
-				iText = ""
-				iText += "No objects selected. \n" 
-				iText += "Please select objects and try again. \n"
+				iText = "No objects selected. Please select objects and try again."
 				self.showStatus(iText)
 			else:
 
@@ -365,7 +382,7 @@ def showQtMain():
 					self.loadStoredTextures(searchObjects)
 
 	# ############################################################################
-	# final settings
+	# final settings, if needed
 	# ############################################################################
 
 	userCancelled = "Cancelled"
