@@ -2,6 +2,8 @@
 
 This is FreeCAD macro for woodworking to apply and store textures.
 
+![setTextures.gif](https://raw.githubusercontent.com/dprojects/setTextures/master/Screenshots/setTextures.gif)
+
 # Setting texture URL automatically
 
 * Select object to apply the texture.
