@@ -4,8 +4,8 @@ This is FreeCAD macro for woodworking to apply and store textures.
 
 # Main features
 
-* Store texture URL, repeat factor, rotation and fit mode in object's property.
-* Download and show stored textures.
+* Store texture URL or local HDD path, repeat factor, rotation and fit mode in object's property.
+* Download and show textures from stored URL or local HDD path.
 * Set and refresh texture for all objects or selected object only.
 * Auto fit mode to object shape type.
 * Small GUI interface in corner to see 3D model refresh.
