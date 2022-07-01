@@ -1,8 +1,11 @@
+# ###################################################################################################################
 '''
+
 FreeCAD macro for woodworking to apply and store textures
 Author: Darek L (github.com/dprojects)
+Latest version: https://github.com/dprojects/setTextures
 
-Tested platform:
+Certified platform:
 
 OS: Ubuntu 22.04 LTS (XFCE/xubuntu)
 Word size of FreeCAD: 64-bit
@@ -15,7 +18,10 @@ Locale: English/United States (en_US)
 Installed mods: 
   * Woodworking 0.20.29177
 
+https://github.com/dprojects/Woodworking
+
 '''
+# ###################################################################################################################
 
 
 import FreeCAD, FreeCADGui
