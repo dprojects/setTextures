@@ -1,6 +1,10 @@
 # Description
 
-This is FreeCAD macro for woodworking to apply and store textures.
+<img align="left" src="https://raw.githubusercontent.com/dprojects/Woodworking/master/Icons/setTextures.png"> This is FreeCAD macro for woodworking to apply and store textures.
+
+**Note:** This tool is also part of [Woodworking workbench](https://github.com/dprojects/Woodworking).
+
+<br><br><br><br>
 
 # Main features
 
