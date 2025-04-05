@@ -30,10 +30,11 @@
 
 * Run the tool and click the `load` button.
 
-# Contact
-
-Please add all comments and questions to the dedicated [FreeCAD forum thread](https://forum.freecadweb.org/viewtopic.php?f=3&t=49034).
-
 # License
 
-MIT
+[MIT](https://github.com/dprojects/Woodworking/blob/master/LICENSE) for all Woodworking workbench content, so it is more free than FreeCAD.
+
+# Contact
+
+For questions, feature requests, please open issue at: [github.com/dprojects/Woodworking/issues](https://github.com/dprojects/Woodworking/issues)
+
