@@ -14,6 +14,11 @@
 * Auto fit mode to object shape type.
 * Small GUI interface in corner to see 3D model refresh.
 
+> [!IMPORTANT]
+> Make sure you have the following option disabled:
+> `Edit -> Preferences -> Display -> 3D View -> Use OpenGL VBO (Vertex Buffer Object)`
+> Especially if you are using the `FreeCAD Dark` or `FreeCAD Light` theme, because they turn on this option and then you may not see the textures.
+
 ![setTextures.gif](https://raw.githubusercontent.com/dprojects/setTextures/master/Screenshots/setTextures.gif)
 
 # Setting texture URL manually
